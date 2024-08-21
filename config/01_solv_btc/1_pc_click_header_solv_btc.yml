@@ -1,0 +1,18 @@
+# 描述: 当前流程名字
+name: SolvBTC[PC]
+# 参数: 浏览器, 可选值参考README.md
+browsers:
+  - chromium
+# 参数: 硬件设备 可选值参考README.md, 添加" landscape"可以改为横屏模式
+devices:
+  - PC
+actions:
+  - ACCESS_DEV_DAPP
+  - CLICK_HEADER_SOLV_BTC_BBN
+  - CLICK_HEADER_SOLV_BTC
+  - CLICK_HEADER_SOLV_BTC_ENA
+  - CLICK_HEADER_Liquidity
+  - CLICK_HEADER_YIELD_MARKET
+  - CLICK_HEADER_POINTS_SYSTEM
+  # - CLICK_HEADER_MY_PORTFOLIO
+  # - CLOSE_WALLET_MODAL

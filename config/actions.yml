@@ -1,0 +1,264 @@
+PAUSE:
+  name: pause page
+  type: pause
+
+WAIT_WALLET_CONNECT_MODAL:
+  - '$:#radix-\:r12\: > div > button > svg'
+
+ACCESS_DEV_DAPP:
+  name: access dev dapp - SolvBTC
+  type: openPage
+  url: http://testhost.local:3010/solvbtc
+
+CLICK_HEADER_SOLV_BTC_BBN:
+  name: 'click header link - "SolvBTC.BBN"'
+  type: click
+  selector: '#__next > div > div.size-full > div > div.relative.h-full.min-h-\[100vh\].w-full > div.fixed.left-0.top-0.z-\[89\].w-full > div.h-\[3rem\].w-full.md\:h-\[5rem\] > div > div > div > header > div > div.hidden.min-w-\[var\(--max-width\)\].max-w-view.md\:block > div > div:nth-child(2) > div > div'
+  wait:
+    - type: navigation
+
+CLICK_HEADER_SOLV_BTC:
+  name: 'click header link - "SolvBTC"'
+  type: click
+  selector: '#__next > div > div.size-full > div > div.relative.h-full.min-h-\[100vh\].w-full > div.fixed.left-0.top-0.z-\[89\].w-full > div.h-\[3rem\].w-full.md\:h-\[5rem\] > div > div > div > header > div > div.hidden.min-w-\[var\(--max-width\)\].max-w-view.md\:block > div > div:nth-child(1) > div > div'
+  wait:
+    - type: navigation
+
+CLICK_HEADER_SOLV_BTC_ENA:
+  name: 'click header link - "SolvBTC.ENA"'
+  type: click
+  selector: '#__next > div > div.size-full > div > div.relative.h-full.min-h-\[100vh\].w-full > div.fixed.left-0.top-0.z-\[89\].w-full > div.h-\[3rem\].w-full.md\:h-\[5rem\] > div > div > div > header > div > div.hidden.min-w-\[var\(--max-width\)\].max-w-view.md\:block > div > div:nth-child(3) > div > div'
+  wait:
+    - type: navigation
+
+CLICK_HEADER_Liquidity:
+  name: 'click header link - "Liquidity"'
+  type: click
+  selector: '#__next > div > div.size-full > div > div.relative.h-full.min-h-\[100vh\].w-full > div.fixed.left-0.top-0.z-\[89\].w-full > div.h-\[3rem\].w-full.md\:h-\[5rem\] > div > div > div > header > div > div.hidden.min-w-\[var\(--max-width\)\].max-w-view.md\:block > div > div:nth-child(4) > div > div'
+  wait:
+    - type: navigation
+
+CLICK_HEADER_YIELD_MARKET:
+  name: 'click header link - "Yield Market"'
+  type: click
+  selector: '#__next > div > div.size-full > div > div.relative.h-full.min-h-\[100vh\].w-full > div.fixed.left-0.top-0.z-\[89\].w-full > div.h-\[3rem\].w-full.md\:h-\[5rem\] > div > div > div > header > div > div.hidden.min-w-\[var\(--max-width\)\].max-w-view.md\:block > div > div:nth-child(5) > div > div'
+  wait:
+    - type: navigation
+
+CLICK_HEADER_MY_PORTFOLIO:
+  name: 'click header link - "My Portfolio"'
+  type: click
+  selector: '#__next > div > div.size-full > div > div.relative.h-full.min-h-\[100vh\].w-full > div.fixed.left-0.top-0.z-\[89\].w-full > div.h-\[3rem\].w-full.md\:h-\[5rem\] > div > div > div > header > div > div.hidden.min-w-\[var\(--max-width\)\].max-w-view.md\:block > div > div:nth-child(6) > div > div'
+  wait:
+    - type: navigation
+    -
+
+CLICK_HEADER_POINTS_SYSTEM:
+  name: 'click header link - "Points System"'
+  type: click
+  selector: '#__next > div > div.size-full > div > div.relative.h-full.min-h-\[100vh\].w-full > div.fixed.left-0.top-0.z-\[89\].w-full > div.h-\[3rem\].w-full.md\:h-\[5rem\] > div > div > div > header > div > div.hidden.min-w-\[var\(--max-width\)\].max-w-view.md\:block > div > div:nth-child(7) > div > div'
+  wait:
+    - type: navigation
+
+CLICK_CART_MOBILE:
+  name: click cart button
+  type: click
+  selector: '#mobileNavBar > div:nth-child(2) > a'
+  wait:
+    - 4000
+
+CLICK_CHECKOUT_SHIPPING:
+  name: 'click "Continue to shipping"  button'
+  type: click
+  selector: '#continue_button'
+  force: false
+  wait: &WAIT_WALLET_CONNECT_MODAL
+    - type: navigation
+
+# CLICK_PRODUCT_FROM_COLLECTION:
+# <<: *CLICK_PRODUCT
+
+CLOSE_WALLET_MODAL:
+  name: close wallet connect modal
+  type: click
+  selector: '#radix-\:r12\: > div > button > svg'
+
+ADD_TO_CART_FROM_DETAIL:
+  - name: add to cart
+    type: click
+    selector: '#addToCart-product-template'
+    wait: &addToCartWait
+      - 'res:https://pmteam-test.myshopify.com/cart/add.js'
+  - name: close cart modal
+    type: click
+    selector: "#ajaxifyModal > button[title='Close Cart']"
+    ignoreError: true
+    timeout: 200
+  - name: close cart modal
+    type: click
+    selector: "#ajaxifyModal > button[title='Close Cart']"
+    ignoreError: true
+    timeout: 200
+
+ADD_TO_CART_FROM_COLLECTION_1:
+  - name: expand sku list of product 1
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(1) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > div > span'
+  - name: select sku
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(1) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > ul > li:nth-child(1) > span'
+    wait: *addToCartWait
+
+ADD_TO_CART_FROM_COLLECTION_2:
+  - name: expose 2nd product in collecton
+    type: scrollIntoView
+    selector: '#CollectionSection > div > div > div > div:nth-child(2) > a'
+  - name: expand sku list of product 2
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(2) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > div > span'
+  - name: select sku
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(2) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > ul > li:nth-child(1) > span'
+    wait: *addToCartWait
+
+ADD_TO_CART_FROM_COLLECTION_3:
+  - name: expose 3th product in collecton
+    type: scrollIntoView
+    selector: '#CollectionSection > div > div > div > div:nth-child(3) > a'
+  - name: expand sku list of 3rd product
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(3) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > div > span'
+  - name: select sku
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(3) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > ul > li:nth-child(1) > span'
+    wait: *addToCartWait
+
+ADD_TO_CART_FROM_COLLECTION_4:
+  - name: expose 4th product in collecton
+    type: scrollIntoView
+    selector: '#CollectionSection > div > div > div > div:nth-child(4) > a'
+  - name: expand sku list of 4the product
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(4) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > div > span'
+  - name: select sku
+    type: click
+    selector: '#CollectionSection > div > div > div > div:nth-child(4) > a > div.product-grid-image > div > div > div > div.satcb_quick_buy.satcb_qb_null > ul > li:nth-child(1) > span'
+    wait: *addToCartWait
+
+TIGGER_MENU:
+  name: trigger menu
+  type: click
+  selector: '#mobileNavBar > div:nth-child(1) > button'
+
+SIGN_IN_PC:
+  - name: goto sign in page
+    type: click
+    selector: '#shopify-section-header > header > div > div #customer_login_link'
+  - name: input user
+    type: input
+    selector: '#customer_email'
+    value: xusiyuan841028@gmail.com
+  - name: input password
+    type: input
+    selector: '#customer_password'
+    value: Xsy123456
+  - name: click 'SIGN IN' button
+    type: click
+    selector: "#customer_login > p > input[type=submit][value='Sign In']"
+    wait:
+      - type: navigation
+
+SIGN_IN_MOBILE:
+  - name: goto sign in page
+    type: click
+    selector: '#MobileNav #customer_login_link'
+  - name: input user
+    type: input
+    selector: '#customer_email'
+    value: xusiyuan841028@gmail.com
+  - name: input password
+    type: input
+    selector: '#customer_password'
+    value: Xsy123456
+  - name: click 'SIGN IN' button
+    type: click
+    selector: '#customer_login > p:nth-child(9) > input'
+    wait:
+      - type: navigation
+
+INPUT_ADDRESS_INFO:
+  - name: input email
+    type: input
+    selector: '#checkout_email_or_phone'
+    faker: '{{internet.email}}'
+  - name: input first name
+    type: input
+    selector: '#checkout_shipping_address_first_name'
+    faker: '{{name.firstName}}'
+  - name: input last name
+    type: input
+    selector: '#checkout_shipping_address_last_name'
+    faker: '{{name.lastName}}'
+  - name: input address
+    type: input
+    selector: '#checkout_shipping_address_address1'
+    faker: '{{address.streetAddress}}'
+  - name: input secondray address
+    type: input
+    selector: '#checkout_shipping_address_address2'
+    faker: '{{address.secondaryAddress}}'
+  - name: select country
+    type: select
+    selector: '#checkout_shipping_address_country'
+    label: United States
+  - name: select state
+    type: select
+    selector: '#checkout_shipping_address_province'
+    label: California
+  - name: input city
+    type: input
+    selector: '#checkout_shipping_address_city'
+    value: San Francisco
+  - name: input zip
+    type: input
+    selector: '#checkout_shipping_address_zip'
+    value: '94016'
+
+INPUT_ADDRESS_INFO_SIGN_IN:
+  - name: input first name
+    type: input
+    selector: '#checkout_shipping_address_first_name'
+    faker: '{{name.firstName}}'
+  - name: input last name
+    type: input
+    selector: '#checkout_shipping_address_last_name'
+    faker: '{{name.lastName}}'
+  - name: input address
+    type: input
+    selector: '#checkout_shipping_address_address1'
+    faker: '{{address.streetAddress}}'
+  - name: input secondray address
+    type: input
+    selector: '#checkout_shipping_address_address2'
+    faker: '{{address.secondaryAddress}}'
+  - name: select country
+    type: select
+    selector: '#checkout_shipping_address_country'
+    label: United States
+  - name: select state
+    type: select
+    selector: '#checkout_shipping_address_province'
+    label: California
+  - name: input city
+    type: input
+    selector: '#checkout_shipping_address_city'
+    value: San Francisco
+  - name: input zip
+    type: input
+    selector: '#checkout_shipping_address_zip'
+    value: '94016'
+
+INPUT_PAYMENT_INFO:
+  - name: select payment method
+    type: check
+    selector: '#checkout_payment_gateway_61165273256'

@@ -1,0 +1,10 @@
+# Ignore artifacts:
+/cache
+/artifacts
+/ignition
+build
+coverage
+
+tsconfig.*.json
+tsconfig.json
+
